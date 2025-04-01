@@ -21,5 +21,5 @@ HTTP SERVER OLUŞTURULDU
 
 */
 http.createServer(app).listen(app.get('port'), function(){
-	console.log('Sistem ' + app.get('port') + ' this is the cicd pipleline.');
+	console.log('Sistem ' + app.get('port') + ' tmy name is kautuk.');
 });
