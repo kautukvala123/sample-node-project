@@ -21,11 +21,11 @@ jobs:
       with:
         node-version: '16'
 
-    - name: Install dependencies
-      run: npm install
-
-    - name: Start the app in background
-      run: nohup npm start &
-      
-    - name: Wait for the app to be ready
-      run: sleep 10
+    - name: Deploy
+      run:
+          # Your deployment command, for example:
+        ssh ubuntu@23.22.29.249 "cd actions-runner/_work/sample-node-project/sample-node-project && git pull && npm install && pm2 restart your-app"
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  # Use GitHub Secrets for SSH keys
+        SSH_HOST: ${{ secrets.SSH_HOST }}
+        SSH_USER: ${{ secrets.SSH_USER }}
