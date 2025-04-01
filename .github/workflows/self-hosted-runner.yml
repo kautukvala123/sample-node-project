@@ -23,12 +23,9 @@ jobs:
 
     - name: Install dependencies
       run: npm install
-      working-directory: ./sample-node-project  # This makes sure you are in the correct project directory
 
     - name: Run tests
       run: npm test
-      working-directory: ./sample-node-project  # Make sure tests are run in the project directory
 
     - name: Start the app (optional)
       run: npm start
-      working-directory: ./sample-node-project  # Again, make sure you are in the project directory
