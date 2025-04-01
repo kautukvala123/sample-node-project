@@ -13,16 +13,19 @@ jobs:
     runs-on: self-hosted
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
     - name: Set up Node.js
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v3
       with:
-        node-version: '23'
+        node-version: '16'
 
     - name: Install dependencies
       run: npm install
 
-    - name: Start the app (optional)
-      run: npm start
+    - name: Start the app in background
+      run: nohup npm start &
+
+    - name: Run tests (if you have tests)
+      run: npm test
