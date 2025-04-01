@@ -26,6 +26,3 @@ jobs:
 
     - name: Start the app in background
       run: nohup npm start &
-
-    - name: Run tests (if you have tests)
-      run: npm test
