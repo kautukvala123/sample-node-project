@@ -3,10 +3,10 @@ name: Self-Hosted Runner Workflow
 on:
   push:
     branches:
-      - main  # Adjust based on your default branch
+      - master  # Adjust based on your default branch
   pull_request:
     branches:
-      - main
+      - master
 
 jobs:
   build:
