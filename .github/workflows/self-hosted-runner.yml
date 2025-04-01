@@ -26,3 +26,6 @@ jobs:
 
     - name: Start the app in background
       run: nohup npm start &
+      
+    - name: Wait for the app to be ready
+      run: sleep 10
