@@ -1,26 +1,34 @@
-name: Self-Hosted Runner Workflow
+name: Node.js CI
 
 on:
   push:
     branches:
-      - master  # Adjust based on your default branch
+      - master
   pull_request:
     branches:
       - master
 
 jobs:
   build:
-    runs-on: self-hosted  # This tells GitHub to use your self-hosted runner
+    runs-on: self-hosted
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-      - name: Install dependencies
-        run: npm install
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
 
-      - name: Run tests
-        run: npm test
+    - name: Install dependencies
+      run: npm install
+      working-directory: ./sample-node-project  # This makes sure you are in the correct project directory
 
-      - name: Start application
-        run: npm start
+    - name: Run tests
+      run: npm test
+      working-directory: ./sample-node-project  # Make sure tests are run in the project directory
+
+    - name: Start the app (optional)
+      run: npm start
+      working-directory: ./sample-node-project  # Again, make sure you are in the project directory
