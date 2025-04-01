@@ -24,7 +24,7 @@ jobs:
     - name: Deploy
       run:
           # Your deployment command, for example:
-        ssh $SSH_USER@$SSH_HOST "cd actions-runner/_work/sample-node-project/sample-node-project && git pull && npm install && pm2 restart your-app"
+        ssh -i ~/.ssh/id_rsa $SSH_USER@$SSH_HOST "cd actions-runner/_work/sample-node-project/sample-node-project && git pull && npm install && pm2 restart your-app"
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  # Use GitHub Secrets for SSH keys
         SSH_HOST: ${{ secrets.SSH_HOST }}
